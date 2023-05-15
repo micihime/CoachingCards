@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CoachingCards.ViewModels"
+             x:Class="CoachingCards.Views.RegisterPage"   
+             x:DataType="viewmodels:RegisterViewModel"
+             NavigationPage.HasNavigationBar="False"
+             Title="Registrace">
+
+    <Shell.NavBarIsVisible>False</Shell.NavBarIsVisible>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" />
+    </Shell.BackButtonBehavior>
+    
+    <ContentPage.BindingContext>
+        <viewmodels:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <Label Text="Registruj sa do aplikácie:"
+                FontSize="Large" />
+            
+            <Label Text="Jméno:" />
+            <Entry Text="{Binding Name}" />
+            
+            <Label Text="Email:" />
+            <Entry Text="{Binding Email}" />
+
+            <Button Text="Odeslat"
+                    Command="{Binding Register}" />
+
+            <Label Text="Link na podmínky TU."
+                FontSize="Large" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

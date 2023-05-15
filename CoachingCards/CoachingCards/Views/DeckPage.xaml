@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CoachingCards.Views.DeckPage"
+             Title="{Binding PageTitle}">
+
+    <ContentPage.Content>
+        <Grid Padding="0">
+            <Image Aspect="AspectFill" Source="{Binding Background}" />
+            <ScrollView>
+                <StackLayout Spacing="20" Padding="15">
+                    <Label Text="{Binding Heading}" FontSize="Title" />
+                    <Label Text="{Binding Text}" FontSize="Medium"/>
+                    <Image Source="{Binding Separator}" />
+                    <Label Text="{Binding Action}" FontSize="Medium" FontAttributes="Italic" />
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Command="{Binding ToggleCardCommand}"
+                        NumberOfTapsRequired="1">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>
